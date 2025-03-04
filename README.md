@@ -3,7 +3,7 @@
 ## Configuring Your Environment
 Either use one of the two conda environment yamls or run the following pip command in your own environment:
 
-bash```
+```bash
 pip install torch torchvision torchaudio accelerate lightning netCDF4 xarray matplotlib jupyterlab tqdm
 ```
 
