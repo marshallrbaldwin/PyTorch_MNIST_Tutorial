@@ -14,5 +14,6 @@ First, create a netCDF version of MNIST with **create_nc_MNIST.py**. Then create
 ## Tutorials
 
 - **train_dense_nn_MNIST_num2num.ipynb** : covers the basic PyTorch workflow
-- **train_dense_nn_Accelerate.ipynb**: covers HuggingFace Accelerate (PyTorch Lightning tutorial in the works)
+- **train_dense_nn_Accelerate.ipynb**: covers HuggingFace Accelerate
+- **train_dense_nn_Lightning.ipynb**: covers PyTorch Lightning
 - **train_cnn_encoder.ipynb**: covers CNN encoder-decoder implementation
