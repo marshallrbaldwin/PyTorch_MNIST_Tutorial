@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 
 class EDMPrecond(torch.nn.Module):
     """ Original Class:: https://github.com/NVlabs/edm/blob/008a4e5316c8e3bfe61a62f874bddba254295afb/training/networks.py#L519
