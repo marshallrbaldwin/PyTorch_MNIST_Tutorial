@@ -17,3 +17,4 @@ First, create a netCDF version of MNIST with **create_nc_MNIST.py**. Then create
 - **train_dense_nn_Accelerate.ipynb**: covers HuggingFace Accelerate
 - **train_dense_nn_Lightning.ipynb**: covers PyTorch Lightning
 - **train_cnn_encoder.ipynb**: covers CNN encoder-decoder implementation
+- **train_EDM_CorrDiff.ipynb**: covers generative prediction of residuals via EDM
