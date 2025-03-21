@@ -1,3 +1,4 @@
+import torch
 from torch.utils.data import Dataset
 import os
 from netCDF4 import Dataset as nc_Dataset
@@ -49,3 +50,37 @@ class MNISTNextDigitDataset(Dataset):
         predictor_indices = df['predictor'].values 
         target_indices = df['target'].values
         return predictor_indices, target_indices
+
+class MNISTNextDigitResidualDataset(MNISTNextDigitDataset):
+    """For predicting residuals from a trained model's next digit predictions"""
+
+    def __init__(self, model, is_train=False):
+        super().__init__(is_train=is_train) #open the netcdf and indices files as usual
+        self.model = model
+        self.device = next(model.parameters()).device #should be either cuda or the cpu
+
+    def __getitem__(self, idx):
+        
+        #get the digit pair 
+        X, y = super().__getitem__(idx)
+        
+        #get predictions from model
+        X = X[np.newaxis,:,:,:]
+        X_device = torch.from_numpy(X).to(self.device)
+        with torch.no_grad():
+            pred = self.model(X_device)
+            pred = pred.cpu().numpy()
+
+        #get residuals of prediction
+        res = pred - y
+
+        #remove batch dimension
+        pred, res = np.squeeze(pred, axis = 0), np.squeeze(res, axis = 0)
+        
+        return (pred), (res) #goal: from pretrained model predictions, produce residuals
+
+    def get_digits(self, idx):
+        """
+        Returns the digit pair which would be returned when indexing the parent class
+        """
+        return super().__getitem__(idx)
