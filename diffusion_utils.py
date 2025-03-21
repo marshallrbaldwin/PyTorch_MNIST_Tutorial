@@ -43,7 +43,7 @@ class EDMPrecond(torch.nn.Module):
         #reshape sigma to match the B, C, H, W dimensionality of x
         sigma = sigma.to(torch.float32).reshape(-1, 1, 1, 1)
         
-        #get scaling weights from EDM 
+        #get scaling weights from EDM (see Karras 2022 Appendix B.6) 
         c_skip = self.sigma_data ** 2 / (sigma ** 2 + self.sigma_data ** 2)
         c_out = sigma * self.sigma_data / (sigma ** 2 + self.sigma_data ** 2).sqrt()
         c_in = 1 / (self.sigma_data ** 2 + sigma ** 2).sqrt()
