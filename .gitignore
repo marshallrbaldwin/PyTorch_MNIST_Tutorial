@@ -1,0 +1,5 @@
+__pycache__/
+
+# trained models and data
+models/*/
+data/
