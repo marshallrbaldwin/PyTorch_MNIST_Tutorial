@@ -61,6 +61,13 @@ class FilmedConvBlock(nn.Module):
         x = self.act(x)
         return x
 
+#little helper class to enable concise conv block stacks
+class CustomSequential(nn.Sequential):
+    def forward(self, input, *args, **kwargs):
+        for module in self:
+            input = module(input, *args, **kwargs)
+        return input
+
 class DenoisingUNet(nn.Module):
     def __init__(self,
                  channels_in=1,
