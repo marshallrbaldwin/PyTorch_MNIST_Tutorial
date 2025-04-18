@@ -4,3 +4,4 @@ __pycache__/
 # trained models and data
 models/*/
 data/*/
+tutorials/lightning_logs/
