@@ -41,34 +41,37 @@ def convert_to_xr(dataset):
     return xr_dataset
 
 def main():
+
+    #find where the tutorial package is located
+    package_root = os.path.dirname(os.getcwd())
     
     #these have implemented torch Dataset class and can be looped over or indexed to get items
     #each element returned is a tuple of length 2
     #The first element is a torch tensor of dimension (channel, height, width)
     #The second element is an integer corresponding to the class label
-    
     training_data = datasets.MNIST(
-        root="data",
+        root=os.path.join(package_root, "data"),
         train=True,
         download=True,
         transform=ToTensor()
     )
     
     test_data = datasets.MNIST(
-        root="data",
+        root=os.path.join(package_root, "data"),
         train=False,
         download=True,
         transform=ToTensor()
     )
     
-    #paths will be your working directory + data/FashionMNIST (created when downloading data) + ncversions/fname.nc
-    train_save_path = os.path.join(os.getcwd(), "data", "MNIST", "nc_versions", "MNIST_training.nc")
-    test_save_path = os.path.join(os.getcwd(), "data", "MNIST", "nc_versions", "MNIST_testing.nc")
+    #set paths for saving data
+    train_save_path = os.path.join(package_root, "data", "MNIST", "nc_versions", "MNIST_training.nc")
+    test_save_path = os.path.join(package_root, "data", "MNIST", "nc_versions", "MNIST_testing.nc")
 
     #create nc folder
-    os.makedirs(os.path.join(os.getcwd(), "data", "MNIST", "nc_versions"), exist_ok = True)
+    os.makedirs(os.path.join(package_root, "data", "MNIST", "nc_versions"), exist_ok = True)
     
     #convert to xr and save to netcdf files
+    print(train_save_path, test_save_path)
     convert_to_xr(training_data).to_netcdf(train_save_path)
     convert_to_xr(test_data).to_netcdf(test_save_path)
 

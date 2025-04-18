@@ -36,7 +36,8 @@ def generate_indices(dataset, samples_per_digit=10_000, seed=42):
 def main():
 
     #open MNIST netcdfs
-    in_dir = os.path.join(os.getcwd(), "data", "MNIST", "nc_versions")
+    package_root = os.path.dirname(os.getcwd())
+    in_dir = os.path.join(package_root, "data", "MNIST", "nc_versions")
     train_ds = xr.open_dataset(os.path.join(in_dir, "MNIST_training.nc"))
     test_ds = xr.open_dataset(os.path.join(in_dir, "MNIST_testing.nc"))
 
@@ -49,7 +50,7 @@ def main():
     test_df = pd.DataFrame({'predictor': test_predictor_indices, 'target': test_target_indices})
 
     #save to csv
-    save_dir = os.path.join(os.getcwd(), "data", "MNIST", "num2num_indices")
+    save_dir = os.path.join(package_root, "data", "MNIST", "num2num_indices")
     os.makedirs(save_dir, exist_ok=True)  
     train_df.to_csv(os.path.join(save_dir, "train_indices.csv"), index=False)
     test_df.to_csv(os.path.join(save_dir, "test_indices.csv"), index=False)
