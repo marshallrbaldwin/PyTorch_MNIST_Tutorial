@@ -15,12 +15,13 @@ class MNISTNextDigitDataset(Dataset):
         """
 
         #get paths
+        package_root = os.path.dirname(os.getcwd())
         if is_train:
-            data_save_path = os.path.join(os.getcwd(), "data", "MNIST", "nc_versions", "MNIST_training.nc")
-            indices_save_path = os.path.join(os.getcwd(), "data", "MNIST", "num2num_indices", "train_indices.csv")
+            data_save_path = os.path.join(package_root, "data", "MNIST", "nc_versions", "MNIST_training.nc")
+            indices_save_path = os.path.join(package_root, "data", "MNIST", "num2num_indices", "train_indices.csv")
         else:
-            data_save_path = os.path.join(os.getcwd(), "data", "MNIST", "nc_versions", "MNIST_testing.nc")
-            indices_save_path = os.path.join(os.getcwd(), "data", "MNIST", "num2num_indices", "test_indices.csv")
+            data_save_path = os.path.join(package_root, "data", "MNIST", "nc_versions", "MNIST_testing.nc")
+            indices_save_path = os.path.join(package_root, "data", "MNIST", "num2num_indices", "test_indices.csv")
 
         #open netCDF4 Dataset of MNIST
         self.nc_dataset = nc_Dataset(data_save_path)

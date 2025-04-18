@@ -12,7 +12,8 @@ def save_model_checkpoint(epoch, model, optimizer, loss, model_name = "dense_nn_
     :param model_name: str - name of the directory in which your model checkpoints will be saved
     """
     #save model for resuming training
-    model_save_dir = os.path.join(os.getcwd(), "models", "MNIST_num2num", "model_checkpoints", model_name)
+    package_root = os.path.dirname(os.getcwd())
+    model_save_dir = os.path.join(package_root, "models", "MNIST_num2num", "model_checkpoints", model_name)
     os.makedirs(model_save_dir, exist_ok = True)
     torch.save({
         "epoch" : epoch,
