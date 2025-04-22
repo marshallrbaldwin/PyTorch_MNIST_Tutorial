@@ -7,17 +7,23 @@ Either use one of the two conda environment yamls or run the following pip comma
 pip install torch torchvision torchaudio accelerate lightning netCDF4 xarray matplotlib jupyterlab tqdm
 ```
 
+## Defining Our Problem
+The **MNIST** (Modified National Institute of Standards and Technology) dataset is a large collection of handwritten digits stored as 28x28 pixel greyscale images. This dataset is often used as a toy dataset for classification, answering the question "what digit is this?" Instead, we will be asking "What does the next digit look like?" That is, we want to create a mapping from an image of a digit to the image of a subsequent digit.
+<div align="center">
+  <img src="images/example_mapping.png" width="80%">
+</div>
+
 ## Getting Data
 
-First, create a netCDF version of MNIST with **create_nc_MNIST.py**. Then create mappings from digits to the next one with **MNIST_num2num_mapping.py**.
+First, create a netCDF version of MNIST with **create_nc_MNIST.py**. PyTorch includes MNIST in a model-ingestable form -- the data is already a PyTorch tensor. We save this data as a netCDF file in order to explain how to load data in practice. **MNIST_num2num_mapping.py** then creates our mappings from a given digit to the next (modulo 10). These are assigned randomly. This means that our mappings are not necessarily injective; one image of a 6 may be mapped to multiple 7's.
 
 ## Tutorials
 
-- **train_dense_nn_MNIST_num2num.ipynb** : covers the basic PyTorch workflow
-- **train_dense_nn_Accelerate.ipynb**: covers HuggingFace Accelerate
-- **train_dense_nn_Lightning.ipynb**: covers PyTorch Lightning
-- **train_cnn_encoder.ipynb**: covers CNN encoder-decoder implementation
-- **train_EDM_CorrDiff.ipynb**: covers generative prediction of residuals via EDM
+- **1.0_train_dense_nn.ipynb** : covers the basic PyTorch workflow to build a densely connected neural network with two hidden layers
+    - **1.1_train_dense_nn_Accelerate.ipynb**: covers identical implementation using HuggingFace Accelerate
+    - **1.2_train_dense_nn_Lightning.ipynb**: covers identical implementation using PyTorch Lightning
+- **2.0_train_cnn_encoder.ipynb**: covers CNN encoder-decoder implementation
+- **3.0_train_EDM_CorrDiff.ipynb**: covers generative prediction of residuals via Elucidated Diffusion Model (EDM)
 
 ## License
 
