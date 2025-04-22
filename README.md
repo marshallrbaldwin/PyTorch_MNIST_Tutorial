@@ -21,6 +21,8 @@ From **/data**, run **create_nc_MNIST.py** and then **MNIST_num2num_mapping.py**
 
 ## Tutorials
 
+You can find annotated tutorial notebooks in **/tutorials**.
+
 - **1.0_train_dense_nn.ipynb** : covers the basic PyTorch workflow to build a densely connected neural network with two hidden layers
     - **1.1_train_dense_nn_Accelerate.ipynb**: covers identical implementation using HuggingFace Accelerate
     - **1.2_train_dense_nn_Lightning.ipynb**: covers identical implementation using PyTorch Lightning
