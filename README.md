@@ -7,6 +7,8 @@ Either use one of the two conda environment yamls or run the following pip comma
 pip install torch torchvision torchaudio accelerate lightning netCDF4 xarray matplotlib jupyterlab tqdm
 ```
 
+You can also run these tutorials in the cloud via Google Colab [here](https://colab.research.google.com/drive/13B5DNomYKQPctrwOJJXlpb39VUfoSvgO?usp=sharing). Make sure your runtime's hardware accelerator is set to a cuda-enabled GPU (Runtime > Change Runtime Type > Hardware Accelerator).
+
 ## Defining Our Problem
 The **MNIST** (Modified National Institute of Standards and Technology) dataset is a large collection of handwritten digits stored as 28x28 pixel greyscale images. This dataset is often used as a toy dataset for classification, answering the question "what digit is this?" Instead, we will be asking "What does the next digit look like?" That is, we want to create a mapping from an image of a digit to the image of a subsequent digit.
 <div align="center">
@@ -28,8 +30,6 @@ You can find annotated tutorial notebooks in **tutorials/**.
     - **1.2_train_dense_nn_Lightning.ipynb**: covers identical implementation using PyTorch Lightning
 - **2.0_train_cnn_encoder.ipynb**: covers CNN encoder-decoder implementation
 - **3.0_train_EDM_CorrDiff.ipynb**: covers generative prediction of residuals via Elucidated Diffusion Model (EDM)
-
-You can run these tutorials in the cloud via Google Colab [here](https://colab.research.google.com/drive/13B5DNomYKQPctrwOJJXlpb39VUfoSvgO?usp=sharing). Make sure your runtime's hardware accelerator is set to a cuda-enabled GPU (Runtime > Change Runtime Type > Hardware Accelerator).
 
 ## License
 
