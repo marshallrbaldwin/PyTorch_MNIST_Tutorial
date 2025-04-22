@@ -10,7 +10,7 @@ pip install torch torchvision torchaudio accelerate lightning netCDF4 xarray mat
 ## Defining Our Problem
 The **MNIST** (Modified National Institute of Standards and Technology) dataset is a large collection of handwritten digits stored as 28x28 pixel greyscale images. This dataset is often used as a toy dataset for classification, answering the question "what digit is this?" Instead, we will be asking "What does the next digit look like?" That is, we want to create a mapping from an image of a digit to the image of a subsequent digit.
 <div align="center">
-  <img src="images/example_mapping.png" width="80%">
+  <img src="tutorials/images/example_mapping.png" width="80%">
 </div>
 
 ## Getting Data
