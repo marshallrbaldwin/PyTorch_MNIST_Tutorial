@@ -29,6 +29,8 @@ You can find annotated tutorial notebooks in **/tutorials**.
 - **2.0_train_cnn_encoder.ipynb**: covers CNN encoder-decoder implementation
 - **3.0_train_EDM_CorrDiff.ipynb**: covers generative prediction of residuals via Elucidated Diffusion Model (EDM)
 
+You can run these tutorials in the cloud via Google Colab [here](https://colab.research.google.com/drive/1uvpz3tOteBnbunqOzwjAx9QOx3a6jafJ?usp=sharing). Make sure your runtime's hardware accelerator is set to a cuda-enabled GPU (Runtime > Change Runtime Type > Hardware Accelerator).
+
 ## License
 
 All material is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). All code in diffusion_utils.py is derived from the official [EDM repository](https://github.com/NVlabs/edm/tree/main) authored by Tero Karras, Miika Aittala, Timo Aila, and Samuli Laine. The architecture in unet_denoiser.py is derived from code shared by Charles "Chuck" White.
