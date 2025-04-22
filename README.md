@@ -1,5 +1,4 @@
 # PyTorch Image-to-Image Tutorial with MNIST
-Author: Marshall Baldwin
 
 ## Configuring Your Environment
 Either use one of the two conda environment yamls or run the following pip command in your own environment:
