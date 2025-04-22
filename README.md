@@ -15,7 +15,9 @@ The **MNIST** (Modified National Institute of Standards and Technology) dataset 
 
 ## Getting Data
 
-First, create a netCDF version of MNIST with **create_nc_MNIST.py**. PyTorch includes MNIST in a model-ingestable form -- the data is already a PyTorch tensor. We save this data as a netCDF file in order to explain how to load data in practice. **MNIST_num2num_mapping.py** then creates our mappings from a given digit to the next (modulo 10). These are assigned randomly. This means that our mappings are not necessarily injective; one image of a 6 may be mapped to multiple 7's.
+From **/data**, run **create_nc_MNIST.py** and then **MNIST_num2num_mapping.py**.
+
+**create_nc_MNIST.py** creates a netCDF version of the MNIST dataset. PyTorch includes MNIST in a model-ingestable form -- the data is already a PyTorch tensor. We save this data as a netCDF file in order to explain how to load data in practice. **MNIST_num2num_mapping.py** then creates our mappings from a given digit to the next (modulo 10). These are assigned randomly. This means that our mappings are not necessarily injective; one image of a 6 may be mapped to multiple 7's.
 
 ## Tutorials
 
